@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Square EDGE Motion</title>
+      <link rel="icon" href="/logo.png">
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="motion">
+            <div class="square" style="--crl: #ff00be"></div>
+        </div>
+    </div> 
+
+    <style>
+      .motion{
+        background: #000;
+        width:200px;
+        height:200px;
+        border-radius:50%;
+        position:relative;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+      }
+      .circle{
+        width:100px;
+        height:100px;
+        border:1px solid #fff;
+        position:absolute;
+        border-radius: 50%;
+        animation: circleAnimation 2s linear infinite;
+      }
+      .circle::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #04fc43;
+        box-shadow: 0 0 20px #04fc43, 0 0 60px #04fc43;
+      }
+      @keyframes circleAnimation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      /* for square*/
+      .square{
+        width:100px;
+        height:100px;
+        border:1px solid #fff;
+        position:absolute;
+        
+      }
+      .square::before{
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 90%;
+      /*   transform: translateX(-100%); */
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--crl);
+        box-shadow: 0 0 20px var(--crl), 0 0 60px var(--crl);
+        animation: animateSquare 3s linear Infinite;
+      }
+      @keyframes animateSquare {
+        0% {
+          transform: translate(0px, 0px);
+        }
+        25% {
+          transform: translateY(100px);
+        }
+        50% {
+          transform: translate(-100px , 100px);
+        }
+        75% {
+          transform: translate(-100px, 0px);
+        }
+        100%{
+          transform: translatX(100px);
+        }
+      }
+
+      body{
+        background:#000;
+        padding: 200px;
+      }
+    </style>
+  </body>
+</html>
